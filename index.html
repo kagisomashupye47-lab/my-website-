@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--
+  HOW TO USE THIS FILE
+  1. Open it in Notepad++ and choose File > Save As. Name it index.html and keep the encoding as UTF-8.
+  2. Double-click index.html to open it in your browser. After each edit in Notepad++, press Ctrl+S, then press F5 in the browser.
+  3. Press Ctrl+F in Notepad++ and search for CHANGE to find everything you need to fill in.
+  4. Press Ctrl+H (Replace) to swap the placeholders everywhere at once:
+       27000000000            your phone number with country code, no plus and no spaces (example 27123456789)
+       0XX XXX XXXX           your phone number the way people should read it (example 012 345 6789)
+       Madikgale Traditional  the full business name, if it is longer than this
+-->
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1F4FA3">
+  <title>Madikgale Traditional | Traditional food in Soshanguve</title>
+  <meta name="description" content="Madikgale Traditional serves traditional food in Soshanguve. Family-friendly, with on-site parking. Reservations required.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Colours and fonts. Change a colour here and it changes everywhere. ===== */
+    :root {
+      --cobalt: #1F4FA3;
+      --saffron: #F2B705;
+      --chilli: #C8322B;
+      --leaf: #2E7D4F;
+      --paper: #FBFAF6;
+      --ink: #14203D;
+      --ink-soft: #46516B;
+      --line: #D9D6CB;
+      --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+      --body: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+      /* The painted-wall diamond pattern used in the bands. */
+      --tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23FBFAF6'/%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='%231F4FA3'/%3E%3Cpolygon points='24,9 39,24 24,39 9,24' fill='%23F2B705'/%3E%3Cpolygon points='24,16 32,24 24,32 16,24' fill='%23C8322B'/%3E%3Cpolygon points='24,21 27,24 24,27 21,24' fill='%2314203D'/%3E%3Cpolygon points='0,0 11,0 0,11' fill='%232E7D4F'/%3E%3Cpolygon points='48,0 37,0 48,11' fill='%232E7D4F'/%3E%3Cpolygon points='0,48 11,48 0,37' fill='%232E7D4F'/%3E%3Cpolygon points='48,48 37,48 48,37' fill='%232E7D4F'/%3E%3C/svg%3E");
+    }
+
+    /* ===== Basics ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 1.0625rem/1.65 var(--body);
+    }
+    img, svg, iframe { max-width: 100%; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; text-wrap: balance; }
+    p { margin: 0 0 1rem; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+    .hero :focus-visible, .book :focus-visible, .footer :focus-visible { outline-color: var(--saffron); }
+    .wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    /* ===== Diamond pattern bands ===== */
+    .band {
+      height: 48px;
+      background-image: var(--tile);
+      background-size: 48px 48px;
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+    .band--thin { height: 24px; background-size: 24px 24px; }
+
+    /* The one moment of motion: the pattern rolls out once when the page loads. */
+    @media (prefers-reduced-motion: no-preference) {
+      .band--hero { animation: unroll 1.1s cubic-bezier(.2, .7, .2, 1) both; }
+      @keyframes unroll {
+        from { clip-path: inset(0 100% 0 0); }
+        to   { clip-path: inset(0 0 0 0); }
+      }
+    }
+
+    /* ===== Buttons ===== */
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: .7rem 1.5rem;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      font: 700 1rem/1.2 var(--body);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color .15s, color .15s;
+    }
+    .btn--saffron { background: var(--saffron); color: var(--ink); }
+    .btn--saffron:hover { background: #fff; }
+    .btn--line { border-color: #fff; color: #fff; }
+    .btn--line:hover { background: #fff; color: var(--ink); }
+    .btn--white { background: #fff; color: var(--ink); }
+    .btn--white:hover { background: var(--saffron); }
+    .btn--ink { background: var(--ink); color: #fff; }
+    .btn--ink:hover { background: var(--cobalt); }
+
+    /* ===== Top bar and hero ===== */
+    .hero { background: var(--cobalt); color: #fff; }
+    .top { padding: 1rem 0 0; }
+    .top nav { display: flex; gap: 1.5rem; }
+    .top a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: .6rem 0;
+      border-bottom: 3px solid transparent;
+    }
+    .top a:hover { border-bottom-color: var(--saffron); }
+
+    .hero__grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+      padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(3rem, 8vw, 5.5rem);
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: clamp(2.9rem, 11.5vw, 6.25rem);
+      letter-spacing: -.025em;
+      line-height: .95;
+      margin-bottom: 1.25rem;
+    }
+    .hero__lead {
+      font-size: clamp(1.2rem, 3.6vw, 1.6rem);
+      line-height: 1.35;
+      max-width: 28ch;
+      margin-bottom: 1.75rem;
+    }
+    .facts {
+      list-style: none;
+      margin: 0 0 2rem;
+      padding: 0;
+      display: grid;
+      gap: .5rem;
+      font-size: 1.05rem;
+    }
+    .facts li { display: flex; align-items: center; gap: .75rem; }
+    .facts li::before {
+      content: "";
+      flex: none;
+      width: .6rem;
+      height: .6rem;
+      background: var(--saffron);
+      transform: rotate(45deg);
+    }
+    .hero__mark { display: none; width: 100%; max-width: 22rem; height: auto; justify-self: end; }
+
+    @media (min-width: 860px) {
+      .hero__grid { grid-template-columns: 1.4fr .8fr; }
+      .hero__mark { display: block; }
+    }
+
+    /* ===== Sections ===== */
+    .section { padding: clamp(3rem, 8vw, 5.5rem) 0; }
+    .section h2 {
+      font-weight: 800;
+      font-size: clamp(2.1rem, 6.5vw, 3.5rem);
+      letter-spacing: -.02em;
+      margin-bottom: .75rem;
+    }
+    .section__lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 40ch; margin-bottom: 2.5rem; }
+
+    /* ===== Menu ===== */
+    .photo { margin: 0 0 2.5rem; }
+    .photo img { display: block; width: 100%; max-height: 28rem; object-fit: cover; }
+    .menu {
+      display: grid;
+      gap: 2.25rem 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+    }
+    .menu__group { border-top: 4px solid var(--ink); padding-top: 1rem; }
+    .menu__group h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+    .menu__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+    .dish__head { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; font-size: 1.1rem; }
+    .dish__price { color: var(--chilli); white-space: nowrap; }
+    .dish__desc { margin: .15rem 0 0; color: var(--ink-soft); }
+    .more { margin: 2.5rem 0 0; font-weight: 700; }
+    .more a { color: var(--cobalt); text-underline-offset: .2em; }
+
+    /* ===== Visit ===== */
+    .visit { display: grid; gap: 2.5rem; }
+    @media (min-width: 860px) {
+      .visit { grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: stretch; }
+    }
+    .book { background: var(--chilli); color: #fff; padding: 1.5rem 1.5rem 1.75rem; margin: 1.25rem 0 1.75rem; }
+    .book h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: .6rem; }
+    .book p { margin-bottom: 1.25rem; }
+    .details { margin: 0 0 1.75rem; }
+    .details div {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 1rem;
+      padding: .85rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .details div:last-child { border-bottom: 1px solid var(--line); }
+    .details dt { font-weight: 700; }
+    .details dd { margin: 0; }
+    .visit__map { min-height: 22rem; background: #E8E6DE; }
+    .visit__map iframe { display: block; width: 100%; height: 100%; min-height: 22rem; border: 0; }
+
+    /* ===== Footer ===== */
+    .footer { background: var(--cobalt); color: #fff; }
+    .footer__inner { padding: 2rem 0 2.5rem; }
+    .footer__name { font-family: var(--display); font-weight: 800; font-size: 1.5rem; margin-bottom: .4rem; }
+    .footer p { margin-bottom: .35rem; }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="top">
+        <nav aria-label="Main">
+          <a href="#menu">Menu</a>
+          <a href="#visit">Visit</a>
+        </nav>
+      </div>
+
+      <div class="hero__grid">
+        <div>
+          <!-- CHANGE: if the full business name is longer, use Ctrl+H to replace "Madikgale Traditional" everywhere. -->
+          <h1>Madikgale Traditional</h1>
+          <p class="hero__lead">Traditional food and a table for the whole family.</p>
+
+          <ul class="facts">
+            <!-- CHANGE: update the rating and review count now and then. -->
+            <li>Rated 4.3 on Google from 55 reviews</li>
+            <li>Family-friendly</li>
+            <li>On-site parking</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn btn--saffron" href="#visit">Reserve a table</a>
+            <a class="btn btn--line" href="#menu">See the menu</a>
+          </div>
+        </div>
+
+        <svg class="hero__mark" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+          <rect width="240" height="240" fill="#FBFAF6"/>
+          <polygon points="0,0 62,0 0,62" fill="#2E7D4F"/>
+          <polygon points="240,0 178,0 240,62" fill="#2E7D4F"/>
+          <polygon points="0,240 62,240 0,178" fill="#2E7D4F"/>
+          <polygon points="240,240 178,240 240,178" fill="#2E7D4F"/>
+          <polygon points="120,14 226,120 120,226 14,120" fill="#C8322B"/>
+          <polygon points="120,42 198,120 120,198 42,120" fill="#F2B705"/>
+          <polygon points="120,70 170,120 120,170 70,120" fill="#1F4FA3"/>
+          <polygon points="120,96 144,120 120,144 96,120" fill="#2E7D4F"/>
+          <polygon points="120,111 129,120 120,129 111,120" fill="#14203D"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="band band--hero" aria-hidden="true"></div>
+
+  <main>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <h2>Menu</h2>
+        <p class="section__lead">Traditional plates, sides and drinks.</p>
+
+        <!-- OPTIONAL PHOTO: save a picture in the same folder as this file and name it food.jpg. It appears here automatically. If the file is missing, this block hides itself. -->
+        <figure class="photo">
+          <img src="food.jpg" alt="Food served at Madikgale Traditional" onerror="this.parentElement.remove()">
+        </figure>
+
+        <!--
+          CHANGE: SAMPLE MENU. Replace these dishes with your real menu.
+          To show a price, add this inside a dish's "dish__head" line, after the name:
+          <span class="dish__price">R85</span>
+        -->
+        <div class="menu">
+          <div class="menu__group">
+            <h3>Plates</h3>
+            <ul class="menu__list">
+              <li class="dish">
+                <div class="dish__head"><span>Fish and chips</span></div>
+                <p class="dish__desc">Fried fish with a lemon wedge, chips and a small salad.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Pap and beef stew</span></div>
+                <p class="dish__desc">Soft pap with slow-cooked beef stew.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Samp and beans</span></div>
+                <p class="dish__desc">Slow-cooked samp and beans, served with chicken.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu__group">
+            <h3>Sides</h3>
+            <ul class="menu__list">
+              <li class="dish">
+                <div class="dish__head"><span>Morogo</span></div>
+                <p class="dish__desc">Wild spinach cooked with onion and tomato.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Chakalaka</span></div>
+                <p class="dish__desc">Spicy vegetable relish.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Garden salad</span></div>
+                <p class="dish__desc">Fresh salad on the side.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu__group">
+            <h3>Drinks</h3>
+            <ul class="menu__list">
+              <li class="dish">
+                <div class="dish__head"><span>Mageu</span></div>
+                <p class="dish__desc">Traditional maize drink.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Ginger beer</span></div>
+                <p class="dish__desc">Cold and sharp.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__head"><span>Rooibos tea</span></div>
+                <p class="dish__desc">Hot, with or without milk.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="more">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Madikgale+Traditional+Soshanguve" target="_blank" rel="noopener">See the full menu on Google Maps</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="band band--thin" aria-hidden="true"></div>
+
+    <section class="section" id="visit">
+      <div class="wrap visit">
+
+        <div>
+          <h2>Visit us</h2>
+
+          <div class="book">
+            <h3>Reservations are required</h3>
+            <p>Book before you come. Call or send a WhatsApp message with your name, the date, the time and how many people are coming.</p>
+            <div class="actions">
+              <!-- CHANGE: replace 27000000000 and 0XX XXX XXXX with the real phone number (see the steps at the top of this file). -->
+              <a class="btn btn--white" href="tel:+27000000000">Call 0XX XXX XXXX</a>
+              <a class="btn btn--line" href="https://wa.me/27000000000?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">WhatsApp us</a>
+            </div>
+          </div>
+
+          <dl class="details">
+            <div>
+              <dt>Address</dt>
+              <dd>692 Block L, 692 Aubrey Matlakala St, Soshanguve - L, Soshanguve, 0152</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <!-- CHANGE: only the closing time (10 pm) is known. Add your opening days and times. -->
+              <dd>Open until 10 pm</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>Until 2 am</dd>
+            </div>
+            <div>
+              <dt>Parking</dt>
+              <dd>On-site parking</dd>
+            </div>
+          </dl>
+
+          <a class="btn btn--ink" href="https://www.google.com/maps/dir/?api=1&amp;destination=692+Aubrey+Matlakala+St%2C+Soshanguve%2C+0152" target="_blank" rel="noopener">Get directions</a>
+        </div>
+
+        <div class="visit__map">
+          <iframe
+            title="Map showing Madikgale Traditional in Soshanguve"
+            src="https://www.google.com/maps?q=692+Aubrey+Matlakala+St,+Soshanguve,+0152&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="band band--thin" aria-hidden="true"></div>
+    <div class="wrap footer__inner">
+      <p class="footer__name">Madikgale Traditional</p>
+      <p>692 Block L, 692 Aubrey Matlakala St, Soshanguve - L, Soshanguve, 0152</p>
+      <p>&copy; <span id="year">2026</span> Madikgale Traditional</p>
+    </div>
+  </footer>
+
+  <script>
+    // Keeps the copyright year up to date.
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
